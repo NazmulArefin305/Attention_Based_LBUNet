@@ -1,18 +1,18 @@
 
 # LBUNet with AttentionSkipFusion
 
-## 📖 Overview
+## Overview
 This repository contains the implementation of the baseline LBUNet and a modified version with AttentionSkipFusion (ASF) for medical image segmentation.
 
 The baseline LBUNet leverages boundary-aware supervision and multiple auxiliary outputs for high segmentation accuracy. The modified model introduces AttentionSkipFusion for learnable skip connections while simplifying the decoder and removing auxiliary branches for faster inference.
 
 ---
 
-## 🔁 Replication Instructions
+## Replication Instructions
 
 Follow the steps below to train and evaluate both the baseline and modified LBUNet models:
 
-### 📁 Step 1: Prepare Dataset on Google Drive
+### Step 1: Prepare Dataset on Google Drive
 
 Create a directory in your **Google Drive** (e.g., `ISIC_2018_Dataset/`) and place the dataset inside it with the following structure:
 
@@ -32,7 +32,7 @@ ISIC_2018_Dataset/
 
 ---
 
-### 🛠️ Step 2: Update `dataset.py` with Dataset Directory
+### Step 2: Update `dataset.py` with Dataset Directory
 
 The default dataset path is hardcoded as:
 ```python
@@ -42,13 +42,13 @@ Modify this in `dataset.py` or pass a `path_Data` argument in the config if your
 
 ---
 
-### 🧠 Step 3: Modify the Model Architecture
+### Step 3: Modify the Model Architecture
 
-Implement your model changes (e.g., replacing merge modules with `AttentionSkipFusion`, changing supervision structure) in `lbunet.py`. Ensure the `forward()` method and output structure reflect these changes.
+Implement your model changes in base model file `lbunet.py`. Ensure the `forward()` method and output structure reflect these changes.
 
 ---
 
-### 🔧 Step 4: Adapt Training and Utility Scripts
+### Step 4: Adapt Training and Utility Scripts
 
 In `utils.py`:
 - Update the loss function if the model output structure is changed.
@@ -62,7 +62,7 @@ In `train.py`:
 
 ---
 
-### 🔗 Step 5: Mount Google Drive in Google Colab
+### Step 5: Mount Google Drive in Google Colab
 
 In your Colab notebook:
 ```python
@@ -72,7 +72,7 @@ drive.mount('/content/drive')
 
 ---
 
-### 📂 Step 6: Set Working Directory and Adjust Paths
+### Step 6: Set Working Directory and Adjust Paths
 
 In `train.py`, the root directory is defined as:
 ```python
@@ -82,7 +82,7 @@ Change this to your actual path if needed.
 
 ---
 
-### 📦 Step 7: Install Required Dependencies
+### Step 7: Install Required Dependencies
 
 Install dependencies in Colab:
 ```bash
@@ -91,7 +91,7 @@ Install dependencies in Colab:
 
 ---
 
-### 🚀 Step 8: Run the Training Script
+### Step 8: Run the Training Script
 
 Start training:
 ```bash
@@ -101,11 +101,11 @@ The script handles training, validation, saving the best model, and final testin
 
 ---
 
-## 📜 License
+## License
 
 This project is for research and academic use only.
 
-## ✏️ Acknowledgment
+## Acknowledgment
 
 This work uses OpenAI’s ChatGPT to assist in formalizing, summarizing, and organizing parts of the code and documentation.
 
